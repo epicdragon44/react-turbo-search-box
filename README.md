@@ -20,46 +20,46 @@ yarn add react-turbo-search-box
 
 ```tsx
 import TurboSearchBox from "react-turbo-search-box";
-```
 
-```tsx
-<TurboSearchBox
-    /* Set the rendered list you want to show */
-    dispatchNewList={(newList) => {
-      // setter here!
-    }}
-    sortBehavior={{
-      /* Keys to use in comparisons to determine search/sorted order */
-      keys: [
-        "name", "description", "tags",
-      ],
-    }}
-    lockBehavior={{
-      /* Optional: Whether or not to cache the list of items to search through */,
-      cacheMode: true,
-      /* Optional: Callback to notify when the lock state changes */
-      notifyLockChange: (newLockVal) => {
-        // do something!
-      },
-      /* Optional: Update this value arbitrarily whenever you want to force SearchBar to give up the lock */,
-      forceReleaseLock: 0
-    }}
-    info={{
-      /* List of all items to search through */
-      fullBaseList: [
-        // ...
-      ],
-      /* List of items that are currently being displayed */
-      currWorkingList: [
-        // ...
-      ],
-    }}
-    style={
-        {
-            /* Normal inline styles to pass to the input element */
-        }
-    }
-/>
+export function App() {
+    return (
+        <>
+            <TurboSearchBox
+                /* Set the rendered list you want to show */
+                dispatchNewList={(newList) => {
+                    // setter here!
+                }}
+                sortBehavior={{
+                    /* Keys to use in comparisons to determine search/sorted order */
+                    keys: ["name", "description", "tags"],
+                }}
+                lockBehavior={{
+                    /* Optional: Whether or not to cache the list of items to search through */
+                    cacheMode: true,
+                    /* Optional: Callback to notify when the lock state changes */
+                    notifyLockChange: (newLockVal) => {
+                        // do something!
+                    },
+                    /* Optional: Update this value arbitrarily whenever you want to force SearchBar to give up the lock */
+                    forceReleaseLock: 0,
+                }}
+                info={{
+                    /* List of all items to search through */
+                    fullBaseList: [
+                        // ...
+                    ],
+                    /* List of items that are currently being displayed */
+                    currWorkingList: [
+                        // ...
+                    ],
+                }}
+                style={{
+                    width: "50%",
+                }}
+            />
+        </>
+    );
+}
 ```
 
 ## Usage: the long version

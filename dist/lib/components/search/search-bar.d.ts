@@ -1,10 +1,6 @@
-import fuzzysort from "fuzzysort";
-import React, { useCallback, useEffect, useState } from "react";
-import { Signal, usePrevious } from "./hooks";
-
-// import css
+import React from "react";
+import { Signal } from "./hooks";
 import "./pico.css";
-
 /** Information necessary to perform the sort */
 export type InformationProps<T> = {
     /** Full list of all items to comb through -- shouldn't change */
@@ -12,7 +8,6 @@ export type InformationProps<T> = {
     /** Current working "head" of the list */
     currWorkingList: T[];
 };
-
 /** Describe sorting behavior */
 export type SortBehaviorProps<T, K> = {
     /** What keys in each object to search against */
@@ -28,7 +23,6 @@ export type SortBehaviorProps<T, K> = {
      */
     postProcess?: (list: K[]) => T[];
 };
-
 export type LockBehaviorProps = {
     /** Make the search bar cache the list before searches, and restore it on search finish */
     cacheMode?: boolean;
@@ -41,7 +35,6 @@ export type LockBehaviorProps = {
      */
     forceReleaseLock?: Signal;
 };
-
 export type SearchBarProps<T, K> = {
     /** Output setter for the sorted list for the wrapper to use -- use this! */
     dispatchNewList: (infoHead: T[]) => void;
@@ -54,7 +47,6 @@ export type SearchBarProps<T, K> = {
     /** Pass styles down */
     style?: React.CSSProperties;
 };
-
 /**
  * Search Bar Component that fuzzy sorts and filters a props-provided list of type `<Generic T>` (via a props-provided setter) based on user-provided graphical input.
  * Additionally, this component employs an optional lock and cache, as well as optional pre and post-processing.
@@ -93,124 +85,4 @@ export type SearchBarProps<T, K> = {
  * The `fullBaseList` prop is the full list of all items to comb through -- shouldn't change.
  * The `currWorkingList` prop is the current working "head" of the list.
  */
-export function SearchBar<T, K = T>(props: SearchBarProps<T, K>) {
-    const { dispatchNewList, sortBehavior, lockBehavior, info } = props;
-    /** Destruct behavior props */
-    const { keys, preProcess, postProcess } = sortBehavior;
-    /** Destruct info props */
-    const { fullBaseList, currWorkingList } = info;
-    /** Destruct lock props */
-    const { cacheMode, notifyLockChange, forceReleaseLock } = lockBehavior;
-
-    /** Used to control search bar text */
-    const [searchText, setSearchText] = useState<string>("");
-
-    /**
-     * Search Bar Lock
-     * When the lock is true, we're in searching mode. Filters are disabled. We'll cache the previous patientinfohead.
-     * When the lock is false, we are no longer searching. Filters are enabled. We'll offload the cache into the actual list.
-     */
-    const [searchLock, setSearchLock] = useState<boolean>(false);
-
-    /**
-     * Cache the patient info head when we start searching
-     * so we can revert back to the original list when we're done.
-     */
-    const [cachedPatientInfoHead, setCachedPatientInfoHead] = useState<T[]>([]);
-
-    /** Keep track of the previous Search Text */
-    const prevSearchText = usePrevious<string>(searchText);
-
-    /**
-     * When the search text changes, and provided the lock is acquired, update the patient info head.
-     * This should only happen when the search lock is acquired.
-     */
-    useEffect(() => {
-        if (searchLock) {
-            if (preProcess && postProcess) {
-                const preprocessedArr = preProcess(fullBaseList);
-
-                const sortedArr = fuzzysort.go(searchText, preprocessedArr, {
-                    keys: keys,
-                    all: true,
-                });
-
-                const retypedArr = sortedArr.map(
-                    (patient: typeof sortedArr[0]) => patient.obj
-                );
-
-                const postprocessedArr = postProcess(retypedArr);
-
-                dispatchNewList(postprocessedArr);
-            } else {
-                const sortedArr = fuzzysort.go(searchText, fullBaseList, {
-                    keys: keys,
-                    all: true,
-                });
-
-                const retypedArr = sortedArr.map(
-                    (patient: typeof sortedArr[0]) => patient.obj
-                );
-
-                dispatchNewList(retypedArr);
-            }
-        }
-    }, [searchText, searchLock]);
-
-    /** Locks us into searching mode and caches the previous list, if cacheMode on */
-    const acquireLock = useCallback(() => {
-        if (cacheMode) {
-            setCachedPatientInfoHead(currWorkingList);
-        }
-
-        setSearchLock(true);
-        notifyLockChange?.(true);
-    }, [cacheMode, currWorkingList]);
-
-    /** Releases the lock, clears the search bar (if not already cleared) and dispatches the cached list, if cacheMode on */
-    const releaseLock = useCallback(() => {
-        if (cacheMode) {
-            dispatchNewList(cachedPatientInfoHead);
-        } else {
-            dispatchNewList(fullBaseList);
-        }
-
-        setSearchText("");
-        setSearchLock(false);
-        notifyLockChange?.(false);
-    }, [cacheMode, cachedPatientInfoHead, fullBaseList]);
-
-    /**
-     * When we start searching, cache the patient info head.
-     * When we stop searching, revert back to the cached patient info head.
-     * Control the search lock respectively.
-     */
-    useEffect(() => {
-        if (!searchLock && prevSearchText === "" && searchText !== "") {
-            acquireLock();
-        } else if (searchLock && prevSearchText !== "" && searchText === "") {
-            releaseLock();
-        }
-    }, [searchText, prevSearchText]);
-
-    /**
-     * Alternatively, if the forceReleaseLock prop is updated, we'll release the lock.
-     */
-    useEffect(() => {
-        if (forceReleaseLock) {
-            // check it's not undefined or null before releasing the lock
-            releaseLock();
-        }
-    }, [forceReleaseLock]);
-
-    return (
-        <input
-            type='search'
-            name='search'
-            placeholder='Search'
-            data-testid={"search-bar-test-id"}
-            onChange={(e) => setSearchText(e.target.value)}
-            style={props.style}
-        />
-    );
-}
+export declare function SearchBar<T, K = T>(props: SearchBarProps<T, K>): JSX.Element;

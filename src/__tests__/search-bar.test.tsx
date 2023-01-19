@@ -3,7 +3,7 @@ import maleNames from "./fake-data/names-male.json";
 import femaleNames from "./fake-data/names-female.json";
 import surnames from "./fake-data/names-surnames.json";
 import { act, Simulate } from "react-dom/test-utils";
-import SearchBar from "../lib/components/search/search-bar";
+import { SearchBar } from "lib/components/search/search-bar";
 
 // ----- Constants -----
 

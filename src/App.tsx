@@ -1,4 +1,4 @@
-import { SearchBar } from "./lib";
+import TurboSearchBox from "./lib";
 
 function App() {
     return (
@@ -6,7 +6,7 @@ function App() {
             <br />
             <br />
             <br />
-            <SearchBar
+            <TurboSearchBox
                 dispatchNewList={() => {
                     /** Don't do anything! */
                 }}

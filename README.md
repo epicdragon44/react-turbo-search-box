@@ -19,11 +19,11 @@ yarn add react-turbo-search-box
 ## TLDR: Usage
 
 ```tsx
-import { SearchBar } from "react-turbo-search-box";
+import TurboSearchBox from "react-turbo-search-box";
 ```
 
 ```tsx
-<SearchBar
+<TurboSearchBox
     /* Set the rendered list you want to show */
     dispatchNewList={(newList) => {
       // setter here!

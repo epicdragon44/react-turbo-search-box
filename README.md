@@ -2,6 +2,8 @@
 
 A super-extra, TypeScript-ready, mutex-locked, state-preserving, fuzzy-sorting, pre-and-post-processable search bar for all (some) of your frontend needs.
 
+![Test](https://github.com/epicdragon44/react-turbo-search-box/actions/workflows/test.yml/badge.svg)
+
 ## Installation
 
 ```bash

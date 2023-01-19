@@ -1,7 +1,31 @@
 {
     "name": "react-turbo-search-box",
+    "description": " A super-extra, TypeScript-ready, mutex-locked, state-preserving, fuzzy-sorting, pre-and-post-processable search bar for all (some) of your frontend needs.",
+    "author": "Daniel Wei",
+    "keywords": [
+        "react",
+        "components",
+        "ui",
+        "search",
+        "mutex",
+        "fuzzy",
+        "sort",
+        "typescript"
+    ],
+    "license": "MIT",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/epicdragon44/react-turbo-search-box.git"
+    },
     "version": "0.1.0",
-    "private": true,
+    "private": false,
     "dependencies": {
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^13.0.0",

@@ -16,7 +16,7 @@ or
 yarn add react-turbo-search-box
 ```
 
-## TLDR: Usage
+## Usage: the TLDR
 
 ```tsx
 import TurboSearchBox from "react-turbo-search-box";

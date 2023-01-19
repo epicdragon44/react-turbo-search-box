@@ -112,7 +112,7 @@ const generateRandomSublist = <T,>(list: T[], n: number) => {
  * @param fullSize - The size of the full list (defaults to 100).
  * @param subSize - The size of the sublist (defaults to 25).
  */
-const getTestData = (
+export const getTestData = (
     searchShouldBePresent = true,
     fullSize = 100,
     subSize = 25

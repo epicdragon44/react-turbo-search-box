@@ -2,7 +2,10 @@ import { SearchBar } from "./lib";
 
 function App() {
     return (
-        <>
+        <center>
+            <br />
+            <br />
+            <br />
             <SearchBar
                 dispatchNewList={() => {
                     /** Don't do anything! */
@@ -15,8 +18,14 @@ function App() {
                     fullBaseList: [],
                     currWorkingList: [],
                 }}
+                style={{
+                    width: "50%",
+                }}
             />
-        </>
+            <br />
+            <br />
+            <br />
+        </center>
     );
 }
 

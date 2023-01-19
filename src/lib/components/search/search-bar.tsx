@@ -2,6 +2,9 @@ import fuzzysort from "fuzzysort";
 import React, { useCallback, useEffect, useState } from "react";
 import { Signal, usePrevious } from "./hooks";
 
+// import css
+import "./pico.css";
+
 /** Information necessary to perform the sort */
 export type InformationProps<T> = {
     /** Full list of all items to comb through -- shouldn't change */
@@ -39,11 +42,6 @@ export type LockBehaviorProps = {
     forceReleaseLock?: Signal;
 };
 
-export type SearchBoxStylingProps = {
-    /** If not provided, defaults to 420px */
-    width: string;
-};
-
 export type SearchBarProps<T, K> = {
     /** Output setter for the sorted list for the wrapper to use -- use this! */
     dispatchNewList: (infoHead: T[]) => void;
@@ -53,6 +51,8 @@ export type SearchBarProps<T, K> = {
     sortBehavior: SortBehaviorProps<T, K>;
     /** Information necessary to perform the sort */
     info: InformationProps<T>;
+    /** Pass styles down */
+    style?: React.CSSProperties;
 };
 
 /**
@@ -93,10 +93,7 @@ export type SearchBarProps<T, K> = {
  * The `fullBaseList` prop is the full list of all items to comb through -- shouldn't change.
  * The `currWorkingList` prop is the current working "head" of the list.
  */
-export default function SearchBar<T, K = T>(
-    props: SearchBarProps<T, K> &
-        Partial<React.FC<React.PropsWithoutRef<JSX.IntrinsicElements["div"]>>>
-) {
+export default function SearchBar<T, K = T>(props: SearchBarProps<T, K>) {
     const { dispatchNewList, sortBehavior, lockBehavior, info } = props;
     /** Destruct behavior props */
     const { keys, preProcess, postProcess } = sortBehavior;
@@ -209,12 +206,11 @@ export default function SearchBar<T, K = T>(
     return (
         <input
             type='search'
-            id='search'
             name='search'
             placeholder='Search'
             data-testid={"search-bar-test-id"}
             onChange={(e) => setSearchText(e.target.value)}
-            {...props}
+            style={props.style}
         />
     );
 }

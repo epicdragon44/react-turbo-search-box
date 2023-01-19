@@ -2,7 +2,7 @@
 
 A super-extra, TypeScript-ready, mutex-locked, state-preserving, fuzzy-sorting, pre-and-post-processable search bar for all (some) of your frontend needs.
 
-![Test](https://github.com/epicdragon44/react-turbo-search-box/actions/workflows/test.yml/badge.svg)
+![Test](https://github.com/epicdragon44/react-turbo-search-box/actions/workflows/test.yml/badge.svg) ![Build](https://github.com/epicdragon44/react-turbo-search-box/actions/workflows/build.yml/badge.svg)
 
 ## Features
 
@@ -119,5 +119,5 @@ Generic type K is optional, and is the type of object that we're searching throu
 
 **Information Props**
 
-The `fullBaseList` prop is the full list of all items to comb through -- shouldn't change.
+The `fullBaseList` prop is the full list of all items to comb through -- shouldn't change too often.
 The `currWorkingList` prop is the current working "head" of the list.

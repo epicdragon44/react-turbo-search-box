@@ -4,6 +4,25 @@ A super-extra, TypeScript-ready, mutex-locked, state-preserving, fuzzy-sorting, 
 
 ![Test](https://github.com/epicdragon44/react-turbo-search-box/actions/workflows/test.yml/badge.svg)
 
+## Features
+
+-   MIT Licensed, certified Free and Open Source.
+-   TypeScript from bottom to top!
+-   Default opinionated styles from Pico CSS, with light and dark modes, but still fully over-ride-able, with all in-line styles applying directly to the raw HTML input element.
+-   End-to-end tested with Jest and React Testing Library.
+-   Automated tests and publishing to the npm registry with GitHub Actions.
+-   Mutex-locked: will notify the wrapper when searching, and prevent conflicting edits to the item list.
+-   Pre-and-post-processable: specify the type of item you're searching, and then another type that extends the first. Convert between the first and second type (with full type-safety) on the fly when passing data into and getting sorted data out of the Search Box, to append custom keys for greater search accuracy, or anything else.
+-   State-preserving: will optionally cache the exact current item list when a search begins, and restore it when the search is over, leaving your application in the exact same state as it was before.
+-   Fuzzy-sort: will dispatch to you a sorted version of your input item list, sorted from top to bottom in order of decreasing relevancy to your search text, with an intelligent auto-cutoff for irrelevant items.
+-   Efficient transpilation to JS using Babel and TSC.
+
+## Planned Features
+
+-   Syntax highlighting for matching subsequences of letters for each list item compared to input text string.
+-   Autocomplete features for the top result and the `Tab` key.
+-   Placeholder text prop
+
 ## Installation
 
 ```bash

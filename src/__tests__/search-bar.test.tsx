@@ -3,7 +3,7 @@ import maleNames from "./fake-data/names-male.json";
 import femaleNames from "./fake-data/names-female.json";
 import surnames from "./fake-data/names-surnames.json";
 import { act, Simulate } from "react-dom/test-utils";
-import { SearchBar } from "lib/components/search/search-bar";
+import TurboSearchBox from "index";
 
 // ----- Constants -----
 
@@ -183,7 +183,7 @@ it("renders without crashing", () => {
     const { fullBaseList, currWorkingList } = getTestData();
 
     render(
-        <SearchBar
+        <TurboSearchBox
             dispatchNewList={jest.fn()}
             sortBehavior={{
                 keys: ["name"],
@@ -215,7 +215,7 @@ for (const present of generateTestRuns(100)) {
         // render the search bar
         render(
             <>
-                <SearchBar
+                <TurboSearchBox
                     dispatchNewList={mockDispatch}
                     sortBehavior={{
                         keys: ["name"],
@@ -275,7 +275,7 @@ for (const present of generateTestRuns(2)) {
         // render the search bar
         render(
             <>
-                <SearchBar
+                <TurboSearchBox
                     dispatchNewList={mockDispatchNewList}
                     sortBehavior={{
                         keys: ["name"],

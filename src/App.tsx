@@ -1,6 +1,7 @@
 import TurboSearchBox from "./lib";
 
-function App() {
+// Simple demo of the TurboSearchBox component
+export function App() {
     return (
         <center>
             <br />
@@ -29,4 +30,4 @@ function App() {
     );
 }
 
-export default App;
+export default TurboSearchBox;

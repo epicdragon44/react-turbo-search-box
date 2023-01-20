@@ -1,5 +1,9 @@
 # React Turbo Search Box
 
+<!-- License -->
+
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://github.com/epicdragon44/react-turbo-search-box/blob/main/LICENSE)
+
 <!-- Github link -->
 
 [![Github](https://img.shields.io/badge/Github-epicdragon44%2Freact--turbo--search--box-blue?style=for-the-badge&logo=github)](https://github.com/epicdragon44/react-turbo-search-box)
@@ -8,7 +12,7 @@
 
 [![NPM](https://img.shields.io/badge/NPM-react--turbo--search--box-blue?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/react-turbo-search-box)
 
-A super-extra, TypeScript-ready, mutex-locked, state-preserving, fuzzy-sorting, pre-and-post-processable search bar for all (some) of your frontend needs.
+A super-extra, open-source, TypeScript-ready, mutex-locked, state-preserving, fuzzy-sorting, pre-and-post-processable search bar for all (some) of your frontend needs.
 
 ![Test](https://github.com/epicdragon44/react-turbo-search-box/actions/workflows/test.yml/badge.svg) ![Build](https://github.com/epicdragon44/react-turbo-search-box/actions/workflows/build.yml/badge.svg)
 

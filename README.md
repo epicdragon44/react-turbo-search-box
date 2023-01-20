@@ -1,5 +1,11 @@
 # React Turbo Search Box
 
+<!-- DEMO LINK -->
+
+[![Demo](https://img.shields.io/badge/Demo-epicdragon44%2Freact--turbo--search--box-blue?style=for-the-badge)](https://react-turbo-search-box-demo.vercel.app)
+
+---
+
 <!-- License -->
 
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](https://github.com/epicdragon44/react-turbo-search-box/blob/main/LICENSE)
@@ -15,6 +21,8 @@
 A super-extra, open-source, TypeScript-ready, mutex-locked, state-preserving, fuzzy-sorting, pre-and-post-processable search bar for all (some) of your frontend needs.
 
 ![Test](https://github.com/epicdragon44/react-turbo-search-box/actions/workflows/test.yml/badge.svg) ![Build](https://github.com/epicdragon44/react-turbo-search-box/actions/workflows/build.yml/badge.svg)
+
+---
 
 ## Features
 
@@ -35,6 +43,12 @@ A super-extra, open-source, TypeScript-ready, mutex-locked, state-preserving, fu
 -   Autocomplete features for the top result and the `Tab` key.
 -   Placeholder text prop
 
+## Known Issues
+
+-   The search bar does not support server-side rendering (obviously). Thus, if you use it in a component in Next.js, please specify the "use client" directive at the top of the component file.
+
+---
+
 ## Installation
 
 ```bash
@@ -46,6 +60,8 @@ or
 ```bash
 yarn add react-turbo-search-box
 ```
+
+---
 
 ## Usage: the TLDR
 

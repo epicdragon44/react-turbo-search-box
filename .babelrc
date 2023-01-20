@@ -1,0 +1,6 @@
+{
+    "ignore": [
+        "**/__tests__" // ignore the whole test directory
+        // "**/*.test.tsx" // ignore test files only
+    ]
+}

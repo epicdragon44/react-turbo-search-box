@@ -24,7 +24,7 @@
         "type": "git",
         "url": "git+https://github.com/epicdragon44/react-turbo-search-box.git"
     },
-    "version": "1.0.5",
+    "version": "1.0.6",
     "private": false,
     "dependencies": {
         "@testing-library/jest-dom": "^5.14.1",

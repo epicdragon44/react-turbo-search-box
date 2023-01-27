@@ -1,6 +1,5 @@
 import React from "react";
 import { Signal } from "./hooks";
-import "./pico.css";
 /** Information necessary to perform the sort */
 export type InformationProps<T> = {
     /** Full list of all items to comb through -- shouldn't change */

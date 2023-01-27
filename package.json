@@ -43,8 +43,7 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "rm -rf dist && NODE_ENV=production babel --extensions .ts,.tsx src --out-dir dist --ignore '**/*.test.tsx' && tsc -p tsconfig.build.json && yarn copy-statics",
-        "copy-statics": "cp ./src/pico.css ./dist/pico.css",
+        "build": "rm -rf dist && NODE_ENV=production babel --extensions .ts,.tsx src --out-dir dist --ignore '**/*.test.tsx' && tsc -p tsconfig.build.json",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
     },

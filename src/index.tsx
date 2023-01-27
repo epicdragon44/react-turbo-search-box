@@ -2,9 +2,6 @@ import fuzzysort from "fuzzysort";
 import React, { useCallback, useEffect, useState } from "react";
 import { Signal, usePrevious } from "./hooks";
 
-// import css
-import "./pico.css";
-
 /** Information necessary to perform the sort */
 export type InformationProps<T> = {
     /** Full list of all items to comb through -- shouldn't change */

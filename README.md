@@ -28,7 +28,7 @@ A super-extra, open-source, TypeScript-ready, mutex-locked, state-preserving, fu
 
 -   MIT Licensed, certified Free and Open Source.
 -   TypeScript from bottom to top!
--   Default opinionated styles from Pico CSS, with light and dark modes, but still fully over-ride-able, with all in-line styles applying directly to the raw HTML input element.
+-   Overrideable inline styles.
 -   End-to-end tested with Jest and React Testing Library.
 -   Automated tests and publishing to the npm registry with GitHub Actions.
 -   Mutex-locked: will notify the wrapper when searching, and prevent conflicting edits to the item list.
